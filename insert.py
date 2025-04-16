@@ -28,7 +28,7 @@ def parse_args():
     # Optional arguments with defaults
     parser.add_argument('--host', default='localhost', help='Redis host (default: localhost)')
     parser.add_argument('--port', type=int, default=6379, help='Redis port (default: 6379)')
-    parser.add_argument('--keyname', default='user_fingerprints', help='Redis key to store vectors (default: user_fingerprints)')
+    parser.add_argument('--keyname', default='hn_fingerprints', help='Redis key to store vectors (default: hn_fingerprints)')
     parser.add_argument('--suffix', default='', help='String to append to usernames, useful to add the same users with different names and check if the style detection works (default: empty string, nothing added)')
 
     return parser.parse_args()
